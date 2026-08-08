@@ -19,7 +19,34 @@ const Navbar = () => {
         }
     }
     if (!user) {
-        return null;
+        return (
+            <nav className="bg-white shadow-md border-b border-gray-200 sticky top-0 z-50">
+                <div className="max-w-7xl mx-auto px-6 md:px-10">
+                    <div className="flex items-center justify-between h-20">
+                        <Link
+                            to="/"
+                            className="text-2xl font-bold text-teal-600"
+                        >
+                            Shop
+                        </Link>
+                        <div className="flex items-center gap-4">
+                            <Link
+                                to="/buyer/login"
+                                className="px-4 py-2 text-gray-600 hover:text-teal-600"
+                            >
+                                Login
+                            </Link>
+                            <Link
+                                to="/buyer/signup"
+                                className="px-4 py-2 bg-teal-600 text-white rounded-xl"
+                            >
+                                Signup
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        );
     }
     if (user.role === "buyer") {
         return (

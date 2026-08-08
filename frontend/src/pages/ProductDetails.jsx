@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from 'react-router-dom'
 import api from '../services/api';
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch,useSelector } from 'react-redux';
 import { setCart } from '../features/cart/cartslice';
 
 const ProductDetails = () => {
@@ -11,7 +11,7 @@ const ProductDetails = () => {
   const [product, setproduct] = useState({})
   const [loading, setloading] = useState(true)
   const [quantity, setquantity] = useState(1);
-
+  const user = useSelector((state) => state.auth.user);
   useEffect(() => {
     async function getProductById() {
       try {
@@ -27,6 +27,10 @@ const ProductDetails = () => {
   }, [id])
 
   async function handleAddToCart() {
+    if (!user) {
+      navigate('/buyer/login');
+      return;
+    }
     try {
       const data = {
         productId: id,

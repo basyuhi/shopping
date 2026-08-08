@@ -42,9 +42,9 @@ const App = () => {
       <Route path="/seller/signup" element={<SellerSignup />} />
 
     <Route element={<Layout/>}>
-      {/* <Route path="/" element={<><Navbar /><Home /></>} /> */}
       <Route path="/" element={<Home/>}/>
       <Route path="/products/:id" element={<ProductDetails/>} />
+      
       <Route path="/cart" element={<ProtectedRoute requiredRole="buyer"><Cart/></ProtectedRoute>}/>
       <Route path="/create" element={<ProtectedRoute requiredRole="seller"><CreateProduct/></ProtectedRoute>}/>
       <Route path="/my-product" element={<ProtectedRoute requiredRole="seller"><MyProducts/></ProtectedRoute>}/>
