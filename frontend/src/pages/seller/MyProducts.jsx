@@ -56,9 +56,9 @@ const MyProducts = () => {
                     </div>
                     <h2 className="text-2xl font-bold text-gray-900 mb-2">No Products Yet</h2>
                     <p className="text-gray-500 text-lg mb-6">You haven't created any products yet.</p>
-                    <a href="/create" className="inline-block px-6 py-3 bg-teal-600 hover:bg-teal-700 text-white font-semibold rounded-xl shadow-lg shadow-teal-600/20 transition-all duration-200">
+                    <Link to="/create" className="inline-block px-6 py-3 bg-teal-600 hover:bg-teal-700 text-white font-semibold rounded-xl shadow-lg shadow-teal-600/20 transition-all duration-200">
                         Create Your First Product
-                    </a>
+                    </Link>
                 </div>
             </div>
         )

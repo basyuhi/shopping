@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import api from "../../services/api";
+import { Link } from "react-router-dom";
 
 const BuyerOrder = () => {
     const [orders, setorders] = useState([])
@@ -41,9 +42,9 @@ const BuyerOrder = () => {
                     </div>
                     <h2 className="text-2xl font-bold text-gray-900 mb-2">No Orders Yet</h2>
                     <p className="text-gray-500 text-lg mb-6">You haven't placed any orders yet.</p>
-                    <a href="/" className="inline-block px-6 py-3 bg-teal-600 hover:bg-teal-700 text-white font-semibold rounded-xl shadow-lg shadow-teal-600/20 transition-all duration-200">
+                    <Link to="/" className="inline-block px-6 py-3 bg-teal-600 hover:bg-teal-700 text-white font-semibold rounded-xl shadow-lg shadow-teal-600/20 transition-all duration-200">
                         Start Shopping
-                    </a>
+                    </Link>
                 </div>
             </div>
         )

@@ -1,6 +1,6 @@
 import { useState } from "react"
 import api from "../../services/api";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { login } from "../../features/auth/authSlice";
 import authImage from '../../assets/auth-image.jpg'
@@ -82,16 +82,16 @@ const BuyerLogin = () => {
 
           <p className="mt-6 text-center text-lg text-gray-500">
             New user?{' '}
-            <a href="/buyer/signup" className="text-teal-600 font-medium hover:text-teal-700 transition-colors">
+            <Link to="/buyer/signup" className="text-teal-600 font-medium hover:text-teal-700 transition-colors">
               Create an account
-            </a>
+            </Link>
           </p>
 
           <p className="mt-3 text-center text-lg text-gray-400">
             Are you a seller?{' '}
-            <a href="/seller/login" className="text-teal-600 font-medium hover:text-teal-700 transition-colors">
+            <Link to="/seller/login" className="text-teal-600 font-medium hover:text-teal-700 transition-colors">
               Log in as seller
-            </a>
+            </Link>
           </p>
         </div>
 
