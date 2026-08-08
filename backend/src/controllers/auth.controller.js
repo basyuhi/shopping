@@ -38,7 +38,11 @@ async function BuyerSignup(req,res){
                     role:user.role
                 }, process.env.JWT_SECRET)
         
-        res.cookie("token", token);
+        res.cookie("token", token, {
+            httpOnly: true,
+            secure: true,
+            sameSite: "none"
+        });
 
         res.status(201).json({
             message: "buyer signup successfull",
@@ -95,7 +99,11 @@ async function BuyerLogin(req, res) {
             role:user.role
         },process.env.JWT_SECRET);
 
-        res.cookie('token',token);
+        res.cookie("token", token, {
+            httpOnly: true,
+            secure: true,
+            sameSite: "none"
+        });
 
         res.status(200).json({
             message: "Buyer logged in successfully",
@@ -149,8 +157,11 @@ async function SellerSignup(req, res) {
             role: user.role//Stores their role("buyer","seller") for authorization checks
                 }, process.env.JWT_SECRET)
 
-        res.cookie("token", token);
-
+        res.cookie("token", token, {
+            httpOnly: true,
+            secure: true,
+            sameSite: "none"
+        });
         res.status(201).json({
             message: "seller signup successfull",
             user: {
@@ -200,8 +211,11 @@ async function SellerLogin(req, res) {
             role: user.role
         }, process.env.JWT_SECRET);
 
-        res.cookie('token', token);
-
+        res.cookie("token", token, {
+            httpOnly: true,
+            secure: true,
+            sameSite: "none"
+        });
         res.status(200).json({
             message: "Seller logged in successfully",
             user: {
@@ -226,7 +240,11 @@ async function getCurrentUser(req,res) {
 }
 async function logout(req,res) {
     try{
-        res.clearCookie('token');// The browser receives that response and removes the cookie from its own storage.
+        res.clearCookie('token', {
+            httpOnly: true,
+            secure: true,
+            sameSite: "none"
+        });        
         res.status(200).json({
             message:"user logged out successfully"
         })
